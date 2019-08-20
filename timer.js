@@ -1,0 +1,62 @@
+var count;
+var countState=true;
+var sessionState=0;
+function startTimer(duration, timerDisplay) {
+    var timer = duration, minutes, seconds;
+    var timeQuery = document.querySelector('#timer');
+    count = setInterval(function () {
+      if(countState){
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        timerDisplay.textContent = minutes + ":" +seconds;
+
+        if(timer == 10 ){
+          timeQuery.style.color="red";
+          timeQuery.style.textShadow="4px 4px white";
+        }
+
+
+        if (--timer < 0) {
+            //timer = duration;
+            console.log("Before");
+            clearInterval(count);
+            setSession(1);
+            console.log("After");
+        }
+      }
+    }, 1000);
+}
+
+function countDown(time) {
+    clearInterval(count);
+    var fiveMinutes = 60 * time;
+    var timer = document.querySelector('#timer');
+    startTimer(fiveMinutes,timer);
+};
+
+function setSession(state) {
+  var timeQuery = document.querySelector('#timer');
+  if(state==0){
+      timeQuery.textContent = "00:00";
+      sessionState=0;
+  }
+  else{
+    timeQuery.textContent = "Q & A";
+    sessionState=1;
+  }
+  timeQuery.style.color = "white"
+  timeQuery.style.textShadow = "4px 4px black";
+}
+
+function pauseTime(){
+  if(countState==true){
+    countState = false;
+  }
+  else if(countState==false){
+    countState = true;
+  }
+}

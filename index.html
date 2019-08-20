@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <script src="timer.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
+    <title>Count Down Timer</title>
+  </head>
+  <body>
+    <div class="container">
+      <table class = "container_table">
+        <tr class="info" >
+          <td id = "timer" colspan="2">00:00</td>
+        </tr>
+        <tr class="hidden">
+          <td colspan="2"> <button id = "startBtn"type="button" onclick="pauseTime()">Pause</button></td>
+        </tr>
+        <tr class= "hidden">
+          <td><button type="button" id = "ideaBtn" onclick="setSession(0);countDown(1)">Idea Pitch</button></td>
+          <td><button type="button" id = "qBtn" onclick="setSession(1);countDown(1)">Q&A</button></td>
+        </tr>
+      </table>
+    </div>
+
+  </body>
+</html>

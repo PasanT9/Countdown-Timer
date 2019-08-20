@@ -1,0 +1,51 @@
+.container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 390px;
+  width: 350px;
+  text-align: center;
+  transform: translateX(-50%) translateY(-50%);
+  background-image: url("Slice_2.png");
+  background-size: 100%;
+  border: 0px;
+  padding: 10px;
+  box-shadow: 0 0 5px 3px #ccc;
+}
+.container .container_table table{
+  border: 1px solid red;
+  table-layout: fixed;
+  width: 350px;
+}
+
+.container .container_table table{
+  border: 1px solid red;
+  table-layout: fixed;
+  width: 350px;
+}
+
+.container .container_table table th,td {
+  position: relative;
+  top: 50px;
+  border: 0px;
+  width: 350px;
+  overflow: hidden;
+}
+
+.info #timer{
+  color: white;
+  font-size: 80px;
+   text-shadow: 4px 4px black;
+}
+
+.hidden button{
+  border-color: transparent;
+  color: transparent;
+  background-color: transparent;
+  width: 100%;
+}
+
+.hidden button:hover{
+  cursor: pointer;
+  color: black;
+}
