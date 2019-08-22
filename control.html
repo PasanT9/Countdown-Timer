@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
+    <title>Count Down Timer</title>
+
+
+ <script type="text/javascript">
+   var socket = new WebSocket("ws://localhost:8080");
+
+    socket.onopen = openSocket;
+    socket.onmessage = updateClock;
+
+   function openSocket() {
+      //$("#input").prepend("Socket open<br>");
+      console.log("Socket opend");
+   }
+
+   function updateClock(result) {
+      var d = result.data;
+      
+      log = document.getElementById("log")
+      log.innerHTML = d;
+      /*if(d=="p"){
+        pauseTime();
+
+      }else if("i"){
+        setSession(0);countDown(1);
+
+      }else if("q"){
+        setSession(1);countDown(1);
+
+      }else{
+        console.log(d);
+      }*/
+   }
+   
+  
+    function pauseClick(){
+      socket.send("p");
+    }
+    function ideaClick(){
+      socket.send("i");
+    }
+    function questionClick(){
+      socket.send("q");
+    }
+
+   </script>
+
+
+  </head>
+  <body>
+  
+  <div style="padding:20px;">
+       <button type="button" onclick="pauseClick()">Pause</button>
+       <button type="button"onclick="ideaClick()">Idea Pitch</button>
+       <button type="button" onclick="questionClick()">Q&A</button>
+
+       <p>Last Command: <span id="log"></span></p>
+
+   </div>
+   
+  </body>
+</html>

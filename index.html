@@ -5,6 +5,55 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8">
     <title>Count Down Timer</title>
+
+
+ <script type="text/javascript">
+   var socket = new WebSocket("ws://localhost:8080");
+
+    socket.onopen = openSocket;
+    socket.onmessage = updateClock;
+
+   function openSocket() {
+      //$("#input").prepend("Socket open<br>");
+      console.log("Socket opend");
+   }
+
+   function updateClock(result) {
+      var d = result.data;
+      
+      if(d=="p"){
+        console.log("pause");
+        pauseTime();
+
+      }else if(d=="i"){
+        console.log("idea pitch");
+        setSession(0);
+        countDown(1);
+
+      }else if(d=="q"){
+        console.log("q&a");
+        setSession(1);
+        countDown(1);
+
+      }else{
+        console.log(d);
+      }
+   }
+   
+  
+    function pauseClick(){
+      socket.send("p");
+    }
+    function ideaClick(){
+      socket.send("i");
+    }
+    function questionClick(){
+      socket.send("q");
+    }
+
+   </script>
+
+
   </head>
   <body>
     <div class="container">
@@ -13,11 +62,11 @@
           <td id = "timer" colspan="2">00:00</td>
         </tr>
         <tr class="hidden">
-          <td colspan="2"> <button id = "startBtn"type="button" onclick="pauseTime()">Pause</button></td>
+          <td colspan="2"> <button id = "startBtn"type="button" onclick="pauseClick()">Pause</button></td>
         </tr>
         <tr class= "hidden">
-          <td><button type="button" id = "ideaBtn" onclick="setSession(0);countDown(1)">Idea Pitch</button></td>
-          <td><button type="button" id = "qBtn" onclick="setSession(1);countDown(1)">Q&A</button></td>
+          <td><button type="button" id = "ideaBtn" onclick="ideaClick()">Idea Pitch</button></td>
+          <td><button type="button" id = "qBtn" onclick="questionClick()">Q&A</button></td>
         </tr>
       </table>
     </div>
