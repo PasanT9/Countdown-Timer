@@ -15,7 +15,7 @@ function startTimer(duration, timerDisplay) {
         timerDisplay.textContent = minutes + ":" +seconds;
 
         if(timer == 10 ){
-          timeQuery.style.color="red";
+          timeQuery.style.color="#FF0D0D";
           timeQuery.style.textShadow="4px 4px white";
         }
 

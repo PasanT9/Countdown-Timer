@@ -1,13 +1,13 @@
 
 // NOTE
 // type 'npm install ws' before use for the first time
-// Run: node server.js 
+// Run: node server.js
 
 var WebSocketServer = require('ws').Server;
 
 // configure the webSocket server:
 var SERVER_PORT = 8080;
-var wss = new WebSocketServer({port: SERVER_PORT});
+var wss = new WebSocketServer({port: SERVER_PORT, ip:'0.0.0.0'});
 var connections = new Array;
 
 /*setInterval(function(){

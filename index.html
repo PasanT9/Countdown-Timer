@@ -20,7 +20,7 @@
 
    function updateClock(result) {
       var d = result.data;
-      
+
       if(d=="p"){
         console.log("pause");
         pauseTime();
@@ -39,8 +39,8 @@
         console.log(d);
       }
    }
-   
-  
+
+
     function pauseClick(){
       socket.send("p");
     }

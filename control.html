@@ -19,7 +19,7 @@
 
    function updateClock(result) {
       var d = result.data;
-      
+
       log = document.getElementById("log")
       log.innerHTML = d;
       /*if(d=="p"){
@@ -35,8 +35,8 @@
         console.log(d);
       }*/
    }
-   
-  
+
+
     function pauseClick(){
       socket.send("p");
     }
@@ -52,7 +52,7 @@
 
   </head>
   <body>
-  
+
   <div style="padding:20px;">
        <button type="button" onclick="pauseClick()">Pause</button>
        <button type="button"onclick="ideaClick()">Idea Pitch</button>
@@ -61,6 +61,6 @@
        <p>Last Command: <span id="log"></span></p>
 
    </div>
-   
+
   </body>
 </html>
