@@ -10,7 +10,7 @@ body{
   top: 50%;
   left: 50%;
   height: 100%;
-  width: 1200px;
+  width: 1400px;
   text-align: center;
   transform: translateX(-50%) translateY(-50%);
   background-image: url("design-01.jpg");
@@ -33,8 +33,8 @@ body{
 
 .container .container_table table th,td {
   position: relative;
-  top: 150px;
-  left:35%;
+  top: 200px;
+  left:50%;
   border: 0px;
   width: 350px;
   overflow: hidden;
@@ -43,7 +43,7 @@ body{
 .info #timer{
   color: white;
   font-family: digital-7 mono;
-  font-size: 200px;
+  font-size: 300px;
    text-shadow: 4px 4px black;
 }
 

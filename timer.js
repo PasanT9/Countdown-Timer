@@ -6,6 +6,8 @@ function startTimer(duration, timerDisplay) {
     var timeQuery = document.querySelector('#timer');
     count = setInterval(function () {
       if(countState){
+        timeQuery.style.fontFamily = "digital-7 mono";
+        timeQuery.style.fontSize = "300px";
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
 
@@ -63,6 +65,8 @@ function setSession(state) {
       timeQuery.style.textShadow = "4px 4px black";
   }
   else if(state==1){
+    timeQuery.style.fontFamily = "sans-serif"
+    timeQuery.style.fontSize = "200px";
     timeQuery.textContent = "Q & A";
     sessionState=1;
     timeQuery.style.color = "white"
