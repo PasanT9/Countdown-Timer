@@ -1,18 +1,23 @@
+body{
+  background-color: black;
+  padding: 0px;
+  margin: 0px;
+}
+
+
 .container{
   position: absolute;
   top: 50%;
   left: 50%;
-  /*height: 390px;
-  width: 350px;*/
   height: 100%;
-  width: 500px;
+  width: 1200px;
   text-align: center;
   transform: translateX(-50%) translateY(-50%);
-  background-image: url("Slice_2.png");
+  background-image: url("design-01.jpg");
   background-size: 100%;
   border: 0px;
-  padding: 10px;
-  box-shadow: 0 0 5px 3px #ccc;
+  padding: 0px;
+  /*box-shadow: 0 0 5px 3px #ccc;*/
 }
 .container .container_table table{
   border: 1px solid red;
@@ -29,6 +34,7 @@
 .container .container_table table th,td {
   position: relative;
   top: 150px;
+  left:35%;
   border: 0px;
   width: 350px;
   overflow: hidden;
@@ -36,7 +42,7 @@
 
 .info #timer{
   color: white;
-  font-family: digital-7;
+  font-family: digital-7 mono;
   font-size: 200px;
    text-shadow: 4px 4px black;
 }

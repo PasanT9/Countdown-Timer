@@ -14,13 +14,29 @@ function startTimer(duration, timerDisplay) {
 
         timerDisplay.textContent = minutes + ":" +seconds;
 
-        if(timer == 10 ){
+        if(sessionState == 0 && timer == 60 ){
+          playAudio();
           timeQuery.style.color="#FF0D0D";
           timeQuery.style.textShadow="4px 4px white";
         }
+        if(sessionState == 1 && timer == 30 ){
+          playAudio();
+          timeQuery.style.color="#FF0D0D";
+          timeQuery.style.textShadow="4px 4px white";
+        }
+        if(sessionState == 1 && timer == 0){
+          clearInterval(count);
+          console.log("1 minute");
+          setSession(2);
+          playAudio();
+          countDown(1);
+        }
+        else if(sessionState == 2 && timer == 0){
+          clearInterval(count);
+          setSession(0);
+        }
 
-
-        if (--timer < 0) {
+        else if (--timer < 0) {
             //timer = duration;
             console.log("Before");
             clearInterval(count);
@@ -43,13 +59,21 @@ function setSession(state) {
   if(state==0){
       timeQuery.textContent = "00:00";
       sessionState=0;
+      timeQuery.style.color = "white"
+      timeQuery.style.textShadow = "4px 4px black";
   }
-  else{
+  else if(state==1){
     timeQuery.textContent = "Q & A";
     sessionState=1;
+    timeQuery.style.color = "white"
+    timeQuery.style.textShadow = "4px 4px black";
   }
-  timeQuery.style.color = "white"
-  timeQuery.style.textShadow = "4px 4px black";
+  else{
+    sessionState = 2;
+    timeQuery.style.color = "#FF0D0D"
+    timeQuery.style.textShadow = "4px 4px white";
+  }
+
 }
 
 function pauseTime(){
@@ -58,5 +82,20 @@ function pauseTime(){
   }
   else if(countState==false){
     countState = true;
+  }
+}
+
+function playAudio() {
+  var audio = new Audio('service-bell_daniel_simion.ogg');
+  audio.type = 'audio/ogg';
+
+  var playPromise = audio.play();
+
+  if (playPromise !== undefined) {
+      playPromise.then(function () {
+          console.log('Playing....');
+      }).catch(function (error) {
+          console.log('Failed to play....' + error);
+      });
   }
 }
