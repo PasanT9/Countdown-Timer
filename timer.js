@@ -82,7 +82,7 @@ function playSingleBell() {
 }
 
 function playDoubleBell() {
-  var audio1 = new Audio('DoubleBell.ogg');
+  var audio1 = new Audio('FourBells.ogg');
   audio1.type = 'audio/ogg';
 
   audio1.play();
